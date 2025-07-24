@@ -11,3 +11,4 @@
 - Improved logging and monitoring (2025-07-14)
 - Fixed Unicode handling for AZ/RU text (2025-07-17)
 - Updated API response format (2025-07-22)
+- Added rate limiting (2025-07-24)
