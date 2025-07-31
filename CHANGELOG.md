@@ -16,3 +16,4 @@
 - Improved test coverage (2025-07-27)
 - Added data export functionality (2025-07-29)
 - Fixed date parsing edge cases (2025-07-29)
+- Fixed edge case in data validation (2025-07-31)
