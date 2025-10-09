@@ -56,3 +56,4 @@
 - Improved logging and monitoring (2025-10-05)
 - Fixed Unicode handling for AZ/RU text (2025-10-05)
 - Updated API response format (2025-10-08)
+- Added rate limiting (2025-10-09)
