@@ -80,3 +80,4 @@
 - Improved error handling for malformed input (2025-12-11)
 - Updated scoring algorithm weights (2025-12-16)
 - Added support for new data format (2025-12-17)
+- Optimized batch processing performance (2025-12-17)
