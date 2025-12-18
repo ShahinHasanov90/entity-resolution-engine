@@ -82,3 +82,4 @@
 - Added support for new data format (2025-12-17)
 - Optimized batch processing performance (2025-12-17)
 - Fixed memory leak in processor (2025-12-18)
+- Added new configuration options (2025-12-18)
