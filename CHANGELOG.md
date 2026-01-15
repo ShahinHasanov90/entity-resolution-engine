@@ -93,3 +93,4 @@
 - Fixed date parsing edge cases (2026-01-08)
 - Fixed edge case in data validation (2026-01-13)
 - Improved error handling for malformed input (2026-01-13)
+- Updated scoring algorithm weights (2026-01-15)
