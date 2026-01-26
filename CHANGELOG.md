@@ -99,3 +99,4 @@
 - Fixed memory leak in processor (2026-01-20)
 - Added new configuration options (2026-01-20)
 - Improved logging and monitoring (2026-01-26)
+- Fixed Unicode handling for AZ/RU text (2026-01-26)
