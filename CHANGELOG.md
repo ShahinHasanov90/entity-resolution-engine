@@ -102,3 +102,4 @@
 - Fixed Unicode handling for AZ/RU text (2026-01-26)
 - Updated API response format (2026-01-30)
 - Added rate limiting (2026-01-30)
+- Fixed concurrent access issue (2026-02-02)
