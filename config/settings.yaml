@@ -1,0 +1,54 @@
+# Multilingual Entity Resolver Configuration
+
+resolver:
+  # Combined score threshold for accepting a match
+  match_threshold: 0.85
+  # Number of candidates from fuzzy matching stage
+  fuzzy_top_k: 10
+  # Default number of results to return
+  default_top_k: 5
+
+similarity:
+  # Weight for fuzzy (token-based) similarity
+  fuzzy_weight: 0.4
+  # Weight for semantic (embedding-based) similarity
+  semantic_weight: 0.6
+  # Sentence-BERT model name
+  model_name: "all-MiniLM-L6-v2"
+
+cache:
+  # Maximum number of cached entries
+  max_size: 10000
+  # Time-to-live in seconds (1 hour)
+  ttl_seconds: 3600
+
+api:
+  host: "0.0.0.0"
+  port: 8000
+  # Path to company data file
+  company_data_path: "data/sample_companies.json"
+
+preprocessing:
+  # Company type stopwords to remove during normalization
+  stopwords:
+    - "LLC"
+    - "LTD"
+    - "INC"
+    - "CORP"
+    - "CO"
+    - "MMC"    # AZ: Məhdud Məsuliyyətli Cəmiyyət
+    - "ASC"    # AZ: Açıq Səhmdar Cəmiyyəti
+    - "QSC"    # AZ: Qapalı Səhmdar Cəmiyyəti
+    - "ŞTH"    # AZ: Şəxsi Ticarət Həyəti (sole proprietorship)
+    - "ООО"    # RU: Общество с ограниченной ответственностью
+    - "ОАО"    # RU: Открытое акционерное общество
+    - "ЗАО"    # RU: Закрытое акционерное общество
+    - "АО"     # RU: Акционерное общество
+    - "ИП"     # RU: Индивидуальный предприниматель
+    - "GmbH"
+    - "AG"
+    - "SA"
+    - "BV"
+    - "NV"
+    - "PLC"
+    - "PTY"
