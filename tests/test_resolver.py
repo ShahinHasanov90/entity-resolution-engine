@@ -145,9 +145,9 @@ class TestResolveTopK:
 class TestResolveCache:
     def test_cache_hit(self, resolver: CompanyResolver) -> None:
         # First call populates cache
-        results1 = resolver.resolve("Silk Way Airlines")
+        results1 = resolver.resolve("Silk Road Cargo")
         # Second call should hit cache
-        results2 = resolver.resolve("Silk Way Airlines")
+        results2 = resolver.resolve("Silk Road Cargo")
         assert len(results1) == len(results2)
         assert results1[0].score == results2[0].score
 

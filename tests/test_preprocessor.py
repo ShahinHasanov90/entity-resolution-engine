@@ -46,8 +46,8 @@ class TestRemoveStopwords:
         assert "ООО" not in result
 
     def test_preserve_normal_words(self) -> None:
-        result = remove_stopwords("Silk Way Airlines")
-        assert result == "Silk Way Airlines"
+        result = remove_stopwords("Silk Road Cargo")
+        assert result == "Silk Road Cargo"
 
 
 class TestTransliterateRuToLatin:
