@@ -9,7 +9,7 @@ Production-ready NLP pipeline for resolving company names across **Azerbaijani**
 
 ## Problem Statement
 
-International trade documents — customs declarations, bills of lading, transit permits — frequently reference the same company under different names, scripts, and transliterations. A single entity like "Azərbaycan Dəmir Yolları" might appear as "Azerbaijan Railways", "АДЖ", or "Азербайджанские Железные Дороги" across different records. Manual reconciliation is slow, error-prone, and doesn't scale. This pipeline automates multilingual entity resolution with sub-second latency.
+International trade documents — customs declarations, bills of lading, transit permits — frequently reference the same company under different names, scripts, and transliterations. A single entity like "Qafqaz Dəmir Yolları" might appear as "Caucasus Railways", "КДЖ", or "Кавказские Железные Дороги" across different records. Manual reconciliation is slow, error-prone, and doesn't scale. This pipeline automates multilingual entity resolution with sub-second latency.
 
 ## Architecture
 
@@ -72,18 +72,18 @@ The sentence-BERT model downloads automatically on first startup (~90 MB).
 ```bash
 curl -X POST http://localhost:8000/resolve \
   -H "Content-Type: application/json" \
-  -d '{"company_name": "Азербайджанские Железные Дороги", "top_k": 3}'
+  -d '{"company_name": "Кавказские Железные Дороги", "top_k": 3}'
 ```
 
 ### Example Response
 
 ```json
 {
-  "query": "Азербайджанские Железные Дороги",
+  "query": "Кавказские Железные Дороги",
   "results": [
     {
-      "name": "Azərbaycan Dəmir Yolları",
-      "matched_variant": "Азербайджанские Железные Дороги",
+      "name": "Qafqaz Dəmir Yolları",
+      "matched_variant": "Кавказские Железные Дороги",
       "score": 0.9712,
       "fuzzy_score": 0.9500,
       "semantic_score": 0.9854,

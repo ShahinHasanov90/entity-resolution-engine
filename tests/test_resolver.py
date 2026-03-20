@@ -16,8 +16,8 @@ def sample_data_path() -> Path:
     data = [
         {
             "id": 1,
-            "canonical": "Azerbaijan Railways",
-            "variants": ["Azərbaycan Dəmir Yolları", "Азербайджанские Железные Дороги", "ADY"],
+            "canonical": "Caucasus Railways",
+            "variants": ["Qafqaz Dəmir Yolları", "Кавказские Железные Дороги", "QDY"],
         },
         {
             "id": 2,
@@ -26,18 +26,18 @@ def sample_data_path() -> Path:
         },
         {
             "id": 3,
-            "canonical": "Silk Way Airlines",
-            "variants": ["Silk Way Hava Yolları", "Силк Вэй Авиалинии"],
+            "canonical": "Silk Road Cargo",
+            "variants": ["İpək Yolu Daşımaçılıq", "Шёлковый Путь Грузоперевозки"],
         },
         {
             "id": 4,
-            "canonical": "Caspian Shipping Company",
-            "variants": ["Xəzər Dəniz Gəmiçiliyi", "Каспийское Морское Пароходство", "ASCO"],
+            "canonical": "Caspian Maritime Company",
+            "variants": ["Xəzər Dəniz Şirkəti", "Каспийская Морская Компания", "CMC"],
         },
         {
             "id": 5,
-            "canonical": "Baku Transport Agency",
-            "variants": ["Bakı Nəqliyyat Agentliyi", "Бакинское Транспортное Агентство", "BNA"],
+            "canonical": "Capital Transport Agency",
+            "variants": ["Paytaxt Nəqliyyat Agentliyi", "Столичное Транспортное Агентство", "CTA"],
         },
     ]
     with tempfile.NamedTemporaryFile(
@@ -77,9 +77,9 @@ class TestCompanyResolverLoad:
 
 class TestResolveExactMatch:
     def test_exact_canonical(self, resolver: CompanyResolver) -> None:
-        results = resolver.resolve("Azerbaijan Railways")
+        results = resolver.resolve("Caucasus Railways")
         assert len(results) > 0
-        assert results[0].name == "Azerbaijan Railways"
+        assert results[0].name == "Caucasus Railways"
         assert results[0].score > 0.9
 
     def test_exact_variant(self, resolver: CompanyResolver) -> None:
@@ -90,14 +90,14 @@ class TestResolveExactMatch:
 
 class TestResolveFuzzyMatch:
     def test_typo_tolerance(self, resolver: CompanyResolver) -> None:
-        results = resolver.resolve("Azerbayjan Railways")
+        results = resolver.resolve("Caucasus Railwayss")
         assert len(results) > 0
-        assert results[0].name == "Azerbaijan Railways"
+        assert results[0].name == "Caucasus Railways"
 
     def test_partial_name(self, resolver: CompanyResolver) -> None:
-        results = resolver.resolve("Silk Way")
+        results = resolver.resolve("Silk Road")
         assert len(results) > 0
-        assert "Silk Way" in results[0].name
+        assert "Silk Road" in results[0].name
 
 
 class TestResolveCrossLanguage:
@@ -107,9 +107,9 @@ class TestResolveCrossLanguage:
         assert results[0].name == "Atlas Logistics"
 
     def test_azerbaijani_to_canonical(self, resolver: CompanyResolver) -> None:
-        results = resolver.resolve("Azərbaycan Dəmir Yolları")
+        results = resolver.resolve("Qafqaz Dəmir Yolları")
         assert len(results) > 0
-        assert results[0].name == "Azerbaijan Railways"
+        assert results[0].name == "Caucasus Railways"
 
 
 class TestResolveNoMatch:
@@ -154,7 +154,7 @@ class TestResolveCache:
 
 class TestMatchResult:
     def test_result_fields(self, resolver: CompanyResolver) -> None:
-        results = resolver.resolve("Azerbaijan Railways")
+        results = resolver.resolve("Caucasus Railways")
         if results:
             r = results[0]
             assert isinstance(r.name, str)

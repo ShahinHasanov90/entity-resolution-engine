@@ -67,7 +67,7 @@ class TestDetectScript:
         assert detect_script("Москва") == "cyrillic"
 
     def test_mixed(self) -> None:
-        assert detect_script("SOCAR Трейдинг") == "mixed"
+        assert detect_script("Atlas Трейдинг") == "mixed"
 
 
 class TestNormalizePunctuation:
